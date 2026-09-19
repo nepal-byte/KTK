@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khando Tibetan Kitchen &amp; Guest House | Authentic Tibetan Food in Boudha</title>
+<meta name="description" content="Authentic Tibetan flavours with a view of the sacred stupa. Freshly prepared momos, thukpa and more, plus peaceful guest house stays in the heart of Boudha, Kathmandu.">
+<style>
+  :root{
+    --maroon:#7c2d26;
+    --maroon-dark:#581d18;
+    --saffron:#e49a3a;
+    --gold:#d9a441;
+    --cream:#faf4e8;
+    --cream-2:#f2e6d0;
+    --ink:#2b2118;
+    --muted:#6d5b4b;
+    --line:rgba(124,45,38,.14);
+    --shadow:0 10px 30px rgba(43,33,24,.10);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.2;
+    letter-spacing:.2px;
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1120px,92%);margin:0 auto}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 0;font-size:14px;color:var(--cream);
+  }
+  .topbar a:hover{text-decoration:underline}
+  .topbar .hours{opacity:.9}
+  .brand-lead{display:flex;align-items:center;gap:12px}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(120deg,var(--maroon-dark),var(--maroon));
+    color:var(--cream);
+    position:sticky;top:0;z-index:50;
+    box-shadow:0 2px 14px rgba(0,0,0,.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand-mark{
+    flex:0 0 auto;
+    width:46px;height:46px;border-radius:12px;
+    background:radial-gradient(circle at 30% 25%,var(--saffron),var(--gold));
+    display:grid;place-items:center;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);
+  }
+  .brand-name{font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.1;white-space:nowrap}
+  .brand-sub{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.75}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-links a{
+    padding:8px 13px;border-radius:999px;font-size:15px;color:var(--cream);
+    opacity:.88;transition:.2s;
+  }
+  .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.14);opacity:1}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .menu-toggle span{display:block;width:24px;height:2px;background:var(--cream);margin:5px 0;border-radius:2px;transition:.25s}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;color:var(--cream);
+    background:
+      radial-gradient(900px 500px at 85% -10%,rgba(228,154,58,.28),transparent 60%),
+      radial-gradient(700px 500px at 0% 110%,rgba(0,0,0,.55),transparent 60%),
+      linear-gradient(160deg,#4a1713 0%,var(--maroon-dark) 55%,var(--maroon) 100%);
+  }
+  .hero-pattern{position:absolute;inset:0;opacity:.5;pointer-events:none}
+  .hero-inner{
+    position:relative;
+    display:grid;gap:24px;
+    padding:64px 0 72px;
+    text-align:center;
+  }
+  .hero-kicker{
+    display:inline-block;margin:0 auto;
+    font-size:13px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--gold);border:1px solid rgba(217,164,65,.55);
+    padding:7px 16px;border-radius:999px;background:rgba(0,0,0,.18);
+  }
+  .hero h1{
+    font-size:clamp(30px,7vw,56px);
+    max-width:700px;margin:6px auto 0;
+    text-shadow:0 2px 20px rgba(0,0,0,.35);
+  }
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{font-size:clamp(16px,3vw,19px);max-width:640px;margin:14px auto 0;opacity:.94}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;
+    transition:.2s;letter-spacing:.3px;
+  }
+  .btn-gold{background:linear-gradient(120deg,var(--saffron),var(--gold));color:#3c2305;box-shadow:0 6px 18px rgba(217,164,65,.4)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,164,65,.5)}
+  .btn-ghost{border:2px solid rgba(255,255,255,.6);color:var(--cream)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+  .hero-stupa{display:block;margin:20px auto 0;opacity:.95}
+
+  /* ---------- Sections base ---------- */
+  section{padding:60px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 38px}
+  .sec-head .eyebrow{
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--maroon);
+    font-weight:700;
+  }
+  .sec-head h2{font-size:clamp(26px,6vw,40px);color:var(--maroon-dark);margin-top:8px}
+  .sec-head p{margin-top:12px;color:var(--muted);font-size:16px}
+
+  /* ---------- Welcome ---------- */
+  .welcome{background:#fff}
+  .welcome-grid{display:grid;gap:28px;align-items:center}
+  .welcome-art{
+    border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(150deg,var(--cream-2),var(--cream));
+    box-shadow:var(--shadow);display:grid;place-items:center;min-height:230px;
+  }
+  
+  .welcome-text h2{font-size:clamp(24px,5.5vw,34px);color:var(--maroon-dark);line-height:1.25}
+  .welcome-text p{color:var(--muted);margin-top:14px}
+  .welcome-text .sign{margin-top:20px;font-family:Georgia,serif;font-style:italic;color:var(--maroon);font-size:17px}
+
+  /* ---------- Highlights ---------- */
+  .highlights{background:linear-gradient(180deg,var(--cream-2),var(--cream))}
+  .cards{display:grid;gap:18px}
+  .card{
+    background:#fff;border-radius:var(--radius);padding:26px 24px;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+    border-top:4px solid var(--gold);
+  }
+  .card h3{color:var(--maroon-dark);font-size:19px}
+  .card p{color:var(--muted);margin-top:9px;font-size:15.5px}
+
+  /* ---------- Testimonials ---------- */
+  .testi{background:#fff}
+  .testi-grid{display:grid;gap:18px}
+  .testi-card{
+    background:var(--cream);border-radius:var(--radius);padding:26px 24px;
+    border:1px solid var(--line);position:relative;
+  }
+  .testi-card .tmark{font-family:Georgia,serif;font-size:56px;line-height:0;color:var(--gold);display:block;height:30px}
+  .testi-card p{font-size:16px;color:var(--ink)}
+  .testi-card .who{display:block;margin-top:14px;font-weight:700;color:var(--maroon);font-size:14.5px}
+
+  /* ---------- About ---------- */
+  .about{background:linear-gradient(160deg,var(--maroon-dark),var(--maroon));color:var(--cream)}
+  .about .sec-head .eyebrow{color:var(--gold)}
+  .about .sec-head h2{color:#fff}
+  .about .sec-head p{color:rgba(250,244,232,.85)}
+  .about-grid{display:grid;gap:26px}
+  .about-text p{color:rgba(250,244,232,.9);font-size:16.5px}
+  .philosophy{display:grid;gap:16px;margin-top:30px}
+  .phil{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    border-radius:14px;padding:20px 22px;
+  }
+  .phil h4{color:var(--gold);font-size:17.5px}
+  .phil p{color:rgba(250,244,232,.88);margin-top:6px;font-size:15.5px}
+
+  /* ---------- Menu ---------- */
+  .menu{background:#fff}
+  .menu-cat-label{
+    display:block;text-align:center;
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--saffron);font-weight:800;margin:8px 0 4px;
+  }
+  .menu-grid{display:grid;gap:16px}
+  .dish{
+    background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;
+  }
+  .dish .name{flex:1 1 210px;font-weight:700;font-size:16.5px;color:var(--ink);min-width:0}
+  .dish .price{font-family:Georgia,serif;font-weight:700;color:var(--maroon);white-space:nowrap;font-size:16px}
+  .dish .desc{flex-basis:100%;color:var(--muted);font-size:14.5px;margin-top:2px}
+  .dish .note{flex-basis:100%;color:var(--maroon);font-size:13px;font-style:italic;margin-top:4px}
+  .menu-note{
+    margin-top:26px;text-align:center;color:var(--muted);
+    background:var(--cream-2);border-radius:14px;padding:16px;
+  }
+  .menu-note a{color:var(--maroon);font-weight:700;text-decoration:underline}
+
+  /* ---------- Stay ---------- */
+  .stay{background:linear-gradient(160deg,#efe2c8,#faf4e8)}
+  .stay-grid{display:grid;gap:26px;align-items:center}
+  .stay-text p{color:var(--muted);font-size:16.5px}
+  .amenities{display:grid;gap:12px;margin-top:24px}
+  .amenity{
+    background:#fff;border-radius:14px;padding:16px 18px;border:1px solid var(--line);
+    font-weight:600;font-size:15.5px;box-shadow:0 4px 14px rgba(43,33,24,.06);
+  }
+  .amenity span{color:var(--maroon);font-weight:800;margin-right:10px}
+  .stay-card{
+    background:linear-gradient(150deg,var(--maroon),var(--maroon-dark));color:var(--cream);
+    border-radius:var(--radius);padding:34px 28px;box-shadow:var(--shadow);
+  }
+  .stay-card h3{color:var(--gold);font-size:22px}
+  .stay-card p{color:rgba(250,244,232,.9);margin-top:10px}
+  .stay-card .btn{margin-top:20px;width:100%}
+
+  /* ---------- Contact ---------- */
+  .contact{background:#fff}
+  .contact-grid{display:grid;gap:22px}
+  .tile{
+    background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;
+  }
+  .tile h3{color:var(--maroon-dark);font-size:18px;margin-bottom:10px}
+  .tile p{color:var(--muted);font-size:15.5px}
+  .tile a{color:var(--maroon);font-weight:700}
+  .tile a:hover{text-decoration:underline}
+  .tile .sub{color:var(--muted);font-size:14px;margin-top:6px}
+  .cta-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .cta-buttons .btn{flex:1 1 220px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:linear-gradient(120deg,var(--maroon-dark),var(--maroon));color:var(--cream);
+    padding:46px 0 34px;text-align:center;
+  }
+  footer h3{font-size:20px}
+  footer .tag{color:var(--gold);font-size:14px;letter-spacing:1px;margin-top:8px}
+  footer .fmeta{margin-top:22px;font-size:15px;display:grid;gap:6px;color:rgba(250,244,232,.85)}
+  footer .fmeta a{color:var(--gold)}
+  footer .fmeta a:hover{text-decoration:underline}
+  .footer-divider{width:64px;height:3px;background:var(--gold);border-radius:2px;margin:18px auto}
+  .copyright{margin-top:22px;font-size:13px;opacity:.65}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:820px){
+    .topbar .hours{display:none}
+    .menu-toggle{display:block}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:2px;
+      background:var(--maroon);padding:10px 16px 16px;
+      border-top:1px solid rgba(255,255,255,.14);
+      box-shadow:0 18px 30px rgba(0,0,0,.25);
+      display:none;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 16px;border-radius:10px;font-size:16px}
+    footer .fmeta{grid-template-columns:1fr}
+  }
+  @media(min-width:821px){
+    .welcome-grid{grid-template-columns:1fr 1.1fr}
+    .cards{grid-template-columns:repeat(3,1fr)}
+    .testi-grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid{grid-template-columns:1fr 1fr;gap:48px}
+    .about-text{padding-top:8px}
+    .menu-grid{grid-template-columns:1fr 1fr}
+    .stay-grid{grid-template-columns:1.1fr 1fr;gap:48px}
+    .contact-grid{grid-template-columns:repeat(2,1fr)}
+    .hero-inner{padding:96px 0 110px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand-lead">
+        <span>Open Daily 9:00 AM – 9:00 PM</span>
+      </div>
+      <a href="tel:+9779707560616">+977 970-7560616</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="#home" aria-label="Khando Tibetan Kitchen home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3c2305" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h8l4 5v13H6z"/><path d="M10 3v4h4"/>
+            <path d="M8 14c0 2 1.8 3.5 4 3.5s4-1.5 4-3.5"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand-name">Khando Kitchen</span><br>
+          <span class="brand-sub">Restaurant &amp; Guest House</span>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navlinks">
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#about" onclick="closeNav()">About</a>
+        <a href="#menu" onclick="closeNav()">Menu</a>
+        <a href="#stay" onclick="closeNav()">Stay</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Section: Home ===== -->
+<section class="hero" id="home">
+  <svg class="hero-pattern" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+    <g stroke="rgba(255,255,255,.10)" stroke-width=".6" fill="none">
+      <circle cx="20" cy="20" r="16"/><circle cx="80" cy="25" r="22"/>
+      <circle cx="55" cy="85" r="18"/><circle cx="10" cy="75" r="10"/>
+      <circle cx="92" cy="80" r="12"/><circle cx="45" cy="8" r="8"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="hero-kicker">Boudha • Kathmandu</span>
+    <h1>Authentic Tibetan Flavors with a View of the <em>Sacred Stupa</em></h1>
+    <p>Experience warm Tibetan hospitality, freshly prepared traditional dishes, and peaceful accommodations in the heart of Boudha.</p>
+
+    <svg class="hero-stupa" aria-hidden="true" width="130" height="130" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="stupaGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f0c069"/><stop offset="1" stop-color="#c9862a"/>
+        </linearGradient>
+      </defs>
+      <rect y="88" width="100" height="8" fill="rgba(255,255,255,.28)"/>
+      <!-- five-tier base -->
+      <rect x="18" y="70" width="64" height="18" fill="rgba(250,244,232,.35)"/>
+      <rect x="12" y="62" width="76" height="8" fill="rgba(250,244,232,.45)"/>
+      <rect x="6" y="54" width="88" height="8" fill="rgba(250,244,232,.55)"/>
+      <!-- dome -->
+      <path d="M22 54 C22 34 30 22 50 22 C70 22 78 34 78 54 Z" fill="url(#stupaGold)"/>
+      <path d="M34 54 C34 42 39 34 50 34 C61 34 66 42 66 54 Z" fill="rgba(60,35,5,.25)"/>
+      <!-- harmika -->
+      <rect x="43" y="15" width="14" height="8" fill="rgba(250,244,232,.9)"/>
+      <!-- spire + parasols -->
+      <path d="M50 15 L50 2" stroke="rgba(250,244,232,.95)" stroke-width="3"/>
+      <path d="M40 9 H60" stroke="rgba(250,244,232,.95)" stroke-width="6"/>
+      <path d="M42 6 H58" stroke="#f0c069" stroke-width="6"/>
+      <!-- crescent -->
+      <circle cx="50" cy="1" r="2" fill="#f0c069"/>
+    </svg>
+
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#menu">View Our Menu</a>
+      <a class="btn btn-ghost" href="#contact">Reserve a Table / Room</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Welcome ===== -->
+<section class="welcome">
+  <div class="wrap welcome-grid">
+    <div class="welcome-art" aria-hidden="true">
+      <svg width="230" height="230" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="dome" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c2d26"/><stop offset="1" stop-color="#d9a441"/>
+          </linearGradient>
+        </defs>
+        <rect y="92" width="100" height="8" rx="4" fill="#e5d3ae"/>
+        <rect x="18" y="74" width="64" height="18" rx="3" fill="#7c2d26"/>
+        <rect x="12" y="64" width="76" height="10" rx="3" fill="#8f3a30"/>
+        <rect x="6" y="54" width="88" height="10" rx="3" fill="#a24438"/>
+        <path d="M22 54 C22 32 31 18 50 18 C69 18 78 32 78 54 Z" fill="url(#dome)"/>
+        <rect x="43" y="11" width="14" height="8" rx="2" fill="#7c2d26"/>
+        <path d="M50 11 V2" stroke="#d9a441" stroke-width="3"/>
+        <path d="M38 6 H62" stroke="#d9a441" stroke-width="6" rx="3"/>
+        <path d="M42 3 H58" stroke="#7c2d26" stroke-width="6" rx="3"/>
+      </svg>
+    </div>
+    <div class="welcome-text">
+      <span class="eyebrow">Welcome</span>
+      <h2>Welcome to Khando Tibetan Kitchen &amp; Guest House</h2>
+      <p>Nestled along Boudha Road, Khando Tibetan Kitchen &amp; Guest House offers a peaceful sanctuary from the bustling streets of Kathmandu. Whether you are stopping by for a hearty meal or looking for a cozy stay, our women-owned establishment welcomes you with open doors and sincere warmth. Enjoy authentic Tibetan recipes passed down through generations, served against the iconic backdrop of the Boudhanath Stupa.</p>
+      <p class="sign">Tashi Delek — a warm welcome to you all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Highlights ===== -->
+<section class="highlights">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Key Highlights</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Rooftop Stupa Views</h3>
+        <p>Dine with an unobstructed, breathtaking view of the sacred stupa and surrounding monasteries.</p>
+      </div>
+      <div class="card">
+        <h3>Authentic Tibetan Cuisine</h3>
+        <p>Freshly made momos, savory thukpas, butter tea, and traditional comfort foods prepared with fresh ingredients.</p>
+      </div>
+      <div class="card">
+        <h3>Warm Hospitality &amp; Cozy Stay</h3>
+        <p>Relax in a friendly, quiet atmosphere designed to make every traveler and family feel right at home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section class="testi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Guest Words</span>
+      <h2>What Travelers Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="tmark" aria-hidden="true">“</span>
+        <p>“This was one of my favorite meals during my trip. The Tibetan food was authentic, flavorful, and made with care. Every dish tasted fresh, and the portions were generous.”</p>
+        <span class="who">— Will, Local Guide</span>
+      </div>
+      <div class="testi-card">
+        <span class="tmark" aria-hidden="true">“</span>
+        <p>“I stayed in this area for about ten days, and I ended up eating here almost every day. A wonderful restaurant with friendly Tibetan staff who always made me feel welcome.”</p>
+        <span class="who">— Bereishit W., Local Guide</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">About Us</span>
+      <h2>Our Story &amp; Vision</h2>
+      <p>Where tradition, culture, and community meet in the heart of Boudha.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h3 style="color:var(--gold);font-size:22px">Our Journey</h3>
+        <p style="margin-top:12px">Located in the heart of Boudha, Kathmandu, Khando Tibetan Kitchen &amp; Guest House was created to offer a place where tradition, culture, and community meet. As a proud women-owned enterprise, our focus has always been on genuine care, authentic flavors, and preserving traditional culinary techniques.</p>
+      </div>
+      <div>
+        <div class="philosophy">
+          <div class="phil">
+            <h4>Freshness &amp; Quality</h4>
+            <p>Every dish is prepared fresh upon order using hand-selected ingredients.</p>
+          </div>
+          <div class="phil">
+            <h4>Community &amp; Peace</h4>
+            <p>We strive to create a serene space where guests can unwind, catch up with friends, or reflect in quiet contemplation.</p>
+          </div>
+          <div class="phil">
+            <h4>Cultural Authenticity</h4>
+            <p>From our decor to our kitchen recipes, we proudly share the rich heritage of Tibetan food and hospitality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Menu ===== -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Restaurant &amp; Menu</span>
+      <h2>Traditional Tibetan Dining</h2>
+      <p>Whether you prefer an indoor dining setup or an open-air rooftop meal overlooking the stupa, Khando Tibetan Kitchen offers the perfect atmosphere for breakfast, lunch, and dinner.</p>
+    </div>
+
+    <span class="menu-cat-label">House Specials &amp; Signature Dishes</span>
+    <div class="menu-grid">
+      <div class="dish">
+        <span class="name">Steamed Tibetan Momos (Veg / Chicken / Buff)</span><span class="price">Rs. 250 – 350</span>
+        <span class="desc">Delicate hand-wrapped dumplings served with spicy homemade sesame-chili chutney.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Kothey / Pan-Fried Momos</span><span class="price">Rs. 280 – 380</span>
+        <span class="desc">Crispy bottom pan-fried dumplings filled with your choice of savory filling.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Traditional Thukpa (Noodle Soup)</span><span class="price">Rs. 220 – 320</span>
+        <span class="desc">Comforting hand-pulled noodles simmered in rich, spiced vegetable or meat broth.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Thenthuk (Flat Hand-Pulled Noodle Soup)</span><span class="price">Rs. 250 – 350</span>
+        <span class="desc">Hearty Tibetan-style flat ribbon noodles cooked with fresh greens and meat.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Shapta (Stir-Fried Meat)</span><span class="price">Rs. 400 – 550</span>
+        <span class="desc">Thinly sliced meat stir-fried with green chilies, onions, ginger, and garlic.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Shabalay (2 pcs)</span><span class="price">Rs. 250 – 320</span>
+        <span class="desc">Deep-fried meat or vegetable pies with a golden crispy crust and juicy filling.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Mokthuk</span><span class="price">Rs. 300 – 380</span>
+        <span class="desc">Steamed momos served swimming inside a warm, savory soup bowl.</span>
+      </div>
+    </div>
+
+    <span class="menu-cat-label">Traditional Beverages &amp; Teas</span>
+    <div class="menu-grid">
+      <div class="dish">
+        <span class="name">Po Cha (Authentic Tibetan Butter Tea)</span><span class="price">Rs. 100 – 150</span>
+        <span class="desc">Churned tea brewed with tea leaves, yak butter, and salt.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Himalayan Masala Milk Tea</span><span class="price">Rs. 80 – 120</span>
+        <span class="desc">A comforting spiced hot tea brewed with local milk.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Hot Lemon Ginger Honey Tea</span><span class="price">Rs. 120 – 180</span>
+        <span class="desc">Freshly squeezed lemon and crushed ginger served with warm mountain honey.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Fresh Herbal Brews</span><span class="price">Rs. 100 – 150</span>
+        <span class="desc">Soothe your throat with chamomile, mint, or Himalayan green tea.</span>
+      </div>
+    </div>
+
+    <span class="menu-cat-label">Breads &amp; Accompaniments</span>
+    <div class="menu-grid">
+      <div class="dish">
+        <span class="name">Tingmo (Steamed Tibetan Bread)</span><span class="price">Rs. 80 – 120</span>
+        <span class="desc">Soft, fluffy steamed twist bread, perfect for dipping in Shapta or soup.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Shogo Khatsa (Spicy Sichuan Potatoes)</span><span class="price">Rs. 220 – 280</span>
+        <span class="desc">Pan-tossed potatoes coated in garlic, green chili, and local spices.</span>
+      </div>
+      <div class="dish">
+        <span class="name">Fried Rice / Chowmein (Veg / Egg / Chicken)</span><span class="price">Rs. 220 – 320</span>
+        <span class="desc">Classic Himalayan-style wok-tossed noodles or jasmine rice.</span>
+      </div>
+    </div>
+
+    <p class="menu-note">All prices are in Nepalese Rupees (Rs.) and approximate — please call <a href="tel:+9779707560616">+977 970-7560616</a> to confirm availability and today’s specials.</p>
+  </div>
+</section>
+
+<!-- ===== Guest House ===== -->
+<section class="stay" id="stay">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Guest House</span>
+      <h2>Your Home Away From Home in Boudha</h2>
+    </div>
+    <div class="stay-grid">
+      <div class="stay-text">
+        <p>Planning an extended trip or a spiritual retreat in Kathmandu? Our Guest House provides clean, peaceful, and comfortable accommodations just steps away from the Boudhanath Stupa and nearby monasteries.</p>
+        <div class="amenities">
+          <div class="amenity"><span>01</span>Quiet and secure rooms away from traffic noise</div>
+          <div class="amenity"><span>02</span>High-speed Wi-Fi access for travelers and remote workers</div>
+          <div class="amenity"><span>03</span>Easy access to our rooftop restaurant for breakfast, tea, and dining</div>
+          <div class="amenity"><span>04</span>Friendly staff available to assist with local recommendations and travel tips</div>
+        </div>
+      </div>
+      <div class="stay-card">
+        <h3>Book Your Stay</h3>
+        <p>For room rates and availability, call us or drop in — our team will be glad to help you plan a comfortable stay steps away from the stupa.</p>
+        <a class="btn btn-gold" href="tel:+9779707560616">Call to Reserve a Room</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Location &amp; Contact</span>
+      <h2>Visit Us</h2>
+      <p>Come share a meal or a quiet moment with us in the heart of Boudha.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="tile">
+        <h3>Address</h3>
+        <p>P9C6+RRC, 6 Boudha Rd, Kathmandu,<br>Bagmati Province 44600</p>
+        <p class="sub">Located inside @06foodgood</p>
+        <p class="sub">Landmark: Just a short walk from the main entrance of Boudhanath Stupa.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-gold" href="https://maps.google.com/?q=P9C6%2BRRC%206%20Boudha%20Rd%20Kathmandu" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+      <div class="tile">
+        <h3>Opening Hours</h3>
+        <p>Monday – Sunday: 9:00 AM – 9:00 PM</p>
+        <p class="sub">Dining Options: Dine-in | Kerbside Pickup</p>
+      </div>
+      <div class="tile">
+        <h3>Contact</h3>
+        <p>Phone: <a href="tel:+9779707560616">+977 970-7560616</a></p>
+        <div class="cta-buttons">
+          <a class="btn btn-ghost" style="border-color:var(--maroon);color:var(--maroon)" href="tel:+9779707560616">Call Now</a>
+        </div>
+      </div>
+      <div class="tile" style="background:linear-gradient(150deg,var(--maroon),var(--maroon-dark));color:var(--cream);border:0">
+        <h3 style="color:var(--gold)">Reserve a Table / Room</h3>
+        <p style="color:rgba(250,244,232,.9)">Let us know when you are coming — we will keep a warm seat and welcome ready for you, whether on the rooftop or in our guest house.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-gold" href="tel:+9779707560616">Call to Reserve</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <h3>Khando Tibetan Kitchen &amp; Guest House</h3>
+    <div class="footer-divider"></div>
+    <p class="tag">Authentic Tibetan Food • Rooftop Stupa View • Warm Hospitality</p>
+    <div class="fmeta">
+      <span>Phone: <a href="tel:+9779707560616">+977 970-7560616</a></span>
+      <span>Location: 6 Boudha Rd, Kathmandu 44600</span>
+      <span>Open Daily: 9:00 AM – 9:00 PM</span>
+    </div>
+    <p class="copyright">© 2026 Khando Tibetan Kitchen &amp; Guest House. A proud women-owned enterprise in Boudha, Kathmandu.</p>
+  </div>
+</footer>
+
+<script>
+  function closeNav(){
+    document.getElementById('navlinks').classList.remove('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active')});
+      link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
